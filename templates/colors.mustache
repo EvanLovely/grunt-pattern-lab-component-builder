@@ -3,6 +3,13 @@
     <li>
       <span class="sg-swatch" style="background: {{value}};"></span>
       <span class="sg-label">{{name}}</span>
+      {{#uses.length}}
+        <p>Uses:</p>
+      {{/uses.length}}
+      {{#uses}}
+        <span class="sg-uses">{{.}}</span>
+      {{/uses}}
+
     </li>
   {{/colors}}
 </ul>

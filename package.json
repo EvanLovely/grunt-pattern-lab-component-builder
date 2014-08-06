@@ -32,7 +32,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "jshint-stylish": "~0.1.5",
     "load-grunt-tasks": "~0.3.0",
-    "mustache": "^0.8.2"
+    "mustache": "^0.8.2",
+    "underscore-node": "^0.1.2"
   },
   "scripts": {
     "test": "grunt test",
