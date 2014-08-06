@@ -1,4 +1,4 @@
-# pattern-lab-component-builder
+# grunt-pattern-lab-component-builder
 
 > Automatically Create Pattern Lab Components
 
