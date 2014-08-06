@@ -55,6 +55,7 @@ The Mustache template to render the Pattern Lab compoenent with. See `templates/
 
 ### Usage Examples
 
+The only current usage is in the overview.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).

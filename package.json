@@ -1,5 +1,5 @@
 {
-  "name": "pattern-lab-component-builder",
+  "name": "grunt-pattern-lab-component-builder",
   "version": "0.0.1",
   "description": "Automatically Create Pattern Lab Components",
   "homepage": "https://github.com/EvanLovely/grunt-pattern-lab-component-builder",
