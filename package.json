@@ -23,6 +23,10 @@
     "node": ">= 0.8.0"
   },
   "license": "MIT",
+  "dependencies": {
+    "mustache": "^0.8.2",
+    "underscore-node": "^0.1.2"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-bump": "0.0.15",
@@ -31,9 +35,7 @@
     "grunt-contrib-nodeunit": "~0.3.0",
     "grunt-contrib-watch": "^0.6.1",
     "jshint-stylish": "~0.1.5",
-    "load-grunt-tasks": "~0.3.0",
-    "mustache": "^0.8.2",
-    "underscore-node": "^0.1.2"
+    "load-grunt-tasks": "~0.3.0"
   },
   "scripts": {
     "test": "grunt test",
