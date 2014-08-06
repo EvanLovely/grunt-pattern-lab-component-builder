@@ -1,6 +1,6 @@
 {
   "name": "grunt-pattern-lab-component-builder",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Automatically Create Pattern Lab Components",
   "homepage": "https://github.com/EvanLovely/grunt-pattern-lab-component-builder",
   "repository": {
@@ -25,6 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.2",
+    "grunt-bump": "0.0.15",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-nodeunit": "~0.3.0",

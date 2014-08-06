@@ -46,15 +46,20 @@ module.exports = function (grunt) {
           grunt.log.verbose.writeln("Value: " + $value);
         });
 
+        // @todo The string `"colors"` below needs to be replaced with `$target`, but isn't working
+        var $target = grunt.task.current.target;
         var $plInfo = {
           "colors": $colors
         };
+
         var $template = grunt.file.read($options.template);
         var $plComponent = Mustache.render($template, $plInfo);
         grunt.file.write($file.dest, $plComponent);
         grunt.log.ok("Rendered!");
 
 
+        grunt.log.verbose.subhead("PL Info JSON:");
+        grunt.log.verbose.writeln(JSON.stringify($plInfo, null, '\t'));
         grunt.log.verbose.subhead("Template Contents:");
         grunt.log.verbose.writeln($template);
         grunt.log.verbose.subhead("View Contents:");
