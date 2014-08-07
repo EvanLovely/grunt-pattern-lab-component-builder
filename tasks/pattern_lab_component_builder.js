@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 
     // Iterate over all specified file groups.
     this.files.forEach(function ($file) {
-      if ($options.component == "colors") {
+      if ($options.component === "colors") {
         grunt.log.writeln("Source File: " + $file.src);
         grunt.log.writeln("Template File: " + $options.template);
         grunt.log.writeln("Destination File: " + $file.dest);
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
 
         $colors_with_var_values.forEach(function($varColor) {
           $plInfo[$target].forEach(function($color) {
-            if ($color.name == $varColor.value) {
+            if ($color.name === $varColor.value) {
               $color["uses"].push($varColor.name);
             }
           });
@@ -68,10 +68,10 @@ module.exports = function (grunt) {
         grunt.file.write($file.dest, $plComponent);
         grunt.log.ok("Rendered!");
 
-        grunt.log.subhead("PL Info JSON:");
-        grunt.log.writeln(JSON.stringify($plInfo, null, '\t'));
-        grunt.log.subhead("Colors with Var Values:");
-        grunt.log.writeln(JSON.stringify($colors_with_var_values, null, '\t'));
+        grunt.log.verbose.subhead("PL Info JSON:");
+        grunt.log.verbose.writeln(JSON.stringify($plInfo, null, '\t'));
+        grunt.log.verbose.subhead("Colors with Var Values:");
+        grunt.log.verbose.writeln(JSON.stringify($colors_with_var_values, null, '\t'));
         grunt.log.verbose.subhead("Template Contents:");
         grunt.log.verbose.writeln($template);
         grunt.log.verbose.subhead("View Contents:");
