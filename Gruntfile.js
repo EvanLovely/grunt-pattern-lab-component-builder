@@ -37,19 +37,20 @@ module.exports = function (grunt) {
         options: {
           component: 'colors',
           template: 'templates/colors.mustache',
-          'regex': /^\$color--.*/mg
+          'regex': "color--.*"
         },
         src: 'test/fixtures/colors.scss',
         dest: 'tmp/colors.mustache'
+      },
+      fonts: {
+        options: {
+          component: 'fonts',
+          template: 'templates/fonts.mustache',
+          regex: "type.*"
+        },
+        src: 'test/fixtures/fonts.scss',
+        dest: 'tmp/fonts.mustache'
       }
-//      fonts: {
-//        options: {
-//          components: 'fonts',
-//          template: 'templates/fonts.mustache'
-//        },
-//        src: 'test/fixtures/fonts.scss',
-//        dest: 'tmp/fonts.mustache'
-//      }
     },
 
     watch: {
@@ -95,7 +96,7 @@ module.exports = function (grunt) {
   // plugin's task(s), then test the result.
   grunt.registerTask('test', [
     'clean',
-    'pattern_lab_component_builder',
+    'pattern_lab_component_builder:colors',
     'nodeunit'
   ]);
 
