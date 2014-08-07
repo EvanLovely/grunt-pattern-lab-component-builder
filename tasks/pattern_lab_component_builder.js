@@ -17,29 +17,31 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('pattern_lab_component_builder', 'Automatically Create Pattern Lab Components', function () {
 
     // Merge task-specific and/or target-specific options with these defaults.
-    var $options = this.options({
-      'regex': /^\$color--.*/mg,
-      'template': 'templates/colors.mustache'
-    });
+    var
+      $options = this.options({
+//        'regex': /^\$color--.*/mg,
+//        'template': 'templates/colors.mustache'
+      }),
+      $target = this.target
+    ;
 
     // Iterate over all specified file groups.
     this.files.forEach(function ($file) {
-      if ($options.component === "colors") {
         grunt.log.writeln("Source File: " + $file.src);
         grunt.log.writeln("Template File: " + $options.template);
         grunt.log.writeln("Destination File: " + $file.dest);
 
-        var $sass = grunt.file.read($file.src);
-        var $regExForSassVars = $options.regex;
-        var $sass_filtered = $sass.match($regExForSassVars);
-        if ($sass_filtered == null) {
+        var $contents = grunt.file.read($file.src);
+        var $results = $contents.match($options.regex);
+        if ($results == null) {
           grunt.fail.fatal("No matching items found in `" + $file.src + "` while searching it with the RegEx `" + $options.regex + '`\n' + "Consider running again with --verbose");
         }
 
+      if ($options.component === "colors") {
         var $colors = [],
             $colors_with_var_values = [];
 
-        $sass_filtered.forEach(function($color) {
+        $results.forEach(function($color) {
           var $name = $color.split(":")[0];
           var $value = $color.split(":")[1].trim().replace(";", "");
           if (!$value.match(/\$/)){
@@ -51,7 +53,6 @@ module.exports = function (grunt) {
           grunt.log.verbose.writeln("Value: " + $value);
         });
 
-        var $target = grunt.task.current.target;
         var $plInfo = {};
         $plInfo[$target] = $colors;
 

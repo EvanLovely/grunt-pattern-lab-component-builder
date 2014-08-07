@@ -41,15 +41,15 @@ module.exports = function (grunt) {
         },
         src: 'test/fixtures/colors.scss',
         dest: 'tmp/colors.mustache'
-      },
-      fonts: {
-        options: {
-          components: 'fonts',
-          template: 'templates/fonts.mustache'
-        },
-        src: 'test/fixtures/fonts.scss',
-        dest: 'tmp/fonts.mustache'
       }
+//      fonts: {
+//        options: {
+//          components: 'fonts',
+//          template: 'templates/fonts.mustache'
+//        },
+//        src: 'test/fixtures/fonts.scss',
+//        dest: 'tmp/fonts.mustache'
+//      }
     },
 
     watch: {
