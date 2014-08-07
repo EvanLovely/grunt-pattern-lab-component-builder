@@ -7,7 +7,7 @@
  */
 
 'use strict';
-var Mustache = require('Mustache');
+var mustache = require('mustache');
 var _ = require('underscore-node');
 module.exports = function (grunt) {
 
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
 //        });
 
         var $template = grunt.file.read($options.template);
-        var $plComponent = Mustache.render($template, $plInfo);
+        var $plComponent = mustache.render($template, $plInfo);
         grunt.file.write($file.dest, $plComponent);
         grunt.log.ok("Rendered!");
 
