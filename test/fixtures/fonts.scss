@@ -1,0 +1,24 @@
+/* Type Scale
+   ========================================================================== */
+$typesize--11px  : 11px;
+$typesize--12px  : 12px;
+$typesize--14px  : 14px;
+$typesize--18px  : 18px;
+$typesize--24px  : 24px;
+$typesize--30px  : 30px;
+$typesize--36px  : 36px;
+$typesize--48px  : 48px;
+$typesize--60px  : 60px;
+$typesize--100px : 100px;
+
+$lineheight--13-11: 13px / $typesize--11px;
+$lineheight--14-12: 14px / $typesize--12px;
+$lineheight--18-12: 18px / $typesize--12px;
+$lineheight--18-14: 18px / $typesize--14px;
+$lineheight--20-18: 20px / $typesize--18px;
+$lineheight--30-24: 30px / $typesize--24px;
+$lineheight--30-30: 30px / $typesize--30px;
+$lineheight--44-36: 44px / $typesize--36px;
+$lineheight--42-48: 42px / $typesize--48px;
+$lineheight--48-60: 48px / $typesize--60px;
+$lineheight--86-100: 86px / $typesize--100px;
