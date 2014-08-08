@@ -7,8 +7,6 @@
  */
 
 'use strict';
-var mustache = require('mustache');
-var _ = require('underscore-node');
 module.exports = function (grunt) {
 
   // Please see the Grunt documentation for more information regarding task

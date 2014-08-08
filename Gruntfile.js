@@ -35,8 +35,6 @@ module.exports = function (grunt) {
     pattern_lab_component_builder: {
       colors: {
         options: {
-          component: 'colors',
-          template: 'templates/colors.mustache',
           'regex': "^\\$color--.*"
         },
         src: 'test/fixtures/colors.scss',
@@ -44,8 +42,6 @@ module.exports = function (grunt) {
       },
       fonts: {
         options: {
-          component: 'fonts',
-          template: 'templates/fonts.mustache',
           regex: "^\\$type.*"
         },
         src: 'test/fixtures/fonts.scss',
