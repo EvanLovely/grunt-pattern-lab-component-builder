@@ -23,6 +23,7 @@ module.exports = function (grunt) {
     }
     grunt.log.verbose.subhead("Results:");
     grunt.log.verbose.writeln(JSON.stringify(results, null, '\t'));
+    grunt.log.write("Parsed `" + sassFile + "` with `" + options.regex + "` ... ");
     return results;
   };
 
@@ -64,6 +65,7 @@ module.exports = function (grunt) {
       results.forEach(function(result) {
         cleanResults.push(colonBreaker(result));
       });
+      grunt.log.writeln("organized parsing");
       grunt.log.verbose.subhead("Clean Results:");
       grunt.log.verbose.writeln(JSON.stringify(cleanResults, null, '\t'));
       var finalResults = {};
@@ -71,6 +73,7 @@ module.exports = function (grunt) {
       grunt.log.verbose.subhead("Final Results:");
       grunt.log.verbose.writeln(JSON.stringify(finalResults, null, '\t'));
       grunt.file.write($file.dest, JSON.stringify(finalResults, null, '  '));
+      grunt.log.ok('Stored results OK in: ' + $file.dest);
 
 //      if ($options.component === "colors") {
 //        grunt.log.writeln("Source File: " + $file.src);
