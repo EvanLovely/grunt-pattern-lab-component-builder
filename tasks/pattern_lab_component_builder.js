@@ -51,8 +51,7 @@ module.exports = function (grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var $options = this.options({
-//      'regex': /^\$color--.*/mg,
-      'template': 'templates/colors.mustache'
+
     });
 
     // Iterate over all specified file groups.
@@ -71,7 +70,7 @@ module.exports = function (grunt) {
       finalResults[grunt.task.current.target] = cleanResults;
       grunt.log.verbose.subhead("Final Results:");
       grunt.log.verbose.writeln(JSON.stringify(finalResults, null, '\t'));
-      grunt.file.write($file.dest, JSON.stringify(finalResults, null, '\t'));
+      grunt.file.write($file.dest, JSON.stringify(finalResults, null, '  '));
 
 //      if ($options.component === "colors") {
 //        grunt.log.writeln("Source File: " + $file.src);
