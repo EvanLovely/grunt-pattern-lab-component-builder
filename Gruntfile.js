@@ -35,12 +35,17 @@ module.exports = function (grunt) {
     pattern_lab_component_builder: {
       colors: {
         options: {
-          component: 'colors',
-          template: 'templates/colors.mustache',
-          'regex': /^\$color--.*/mg
+          'regex': "^\\$color--.*"
         },
         src: 'test/fixtures/colors.scss',
-        dest: 'tmp/colors.mustache'
+        dest: 'tmp/colors.json'
+      },
+      fonts: {
+        options: {
+          regex: "^\\$type.*"
+        },
+        src: 'test/fixtures/fonts.scss',
+        dest: 'tmp/fonts.json'
       }
     },
 
@@ -87,8 +92,8 @@ module.exports = function (grunt) {
   // plugin's task(s), then test the result.
   grunt.registerTask('test', [
     'clean',
-    'pattern_lab_component_builder',
-    'nodeunit'
+    'pattern_lab_component_builder'
+//    'nodeunit'
   ]);
 
   // By default, lint and run all tests.
