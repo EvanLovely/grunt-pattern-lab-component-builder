@@ -7,6 +7,7 @@
  */
 
 'use strict';
+var _ = require('underscore');
 module.exports = function (grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -27,16 +28,22 @@ module.exports = function (grunt) {
     return results;
   };
 
-  var colonBreaker = function (theString) {
+  var colonBreaker = function (theString, options) {
     var $name = theString.split(":")[0].trim();
     var $value = theString.split(":")[1].trim().replace(";", "");
     var result = {
       "name": $name,
       "value": $value
     };
+    if (options.allow_var_values) {
+      return result;
+    } else {
+      if (!$value.match(/\$/)) {
+        return result;
+      }
+    }
 //    var results = [];
 //    results.push("with_var_values");
-//    if (!$value.match(/\$/)) {
 //      results.push({"name": $name, "value": $value, "uses": []});
 //    }
 //    @todo restore uses
@@ -45,26 +52,27 @@ module.exports = function (grunt) {
 //    }
 //    grunt.log.verbose.writeln("Name : " + $name);
 //    grunt.log.verbose.writeln("Value: " + $value);
-    return result;
   };
 
   grunt.registerMultiTask('pattern_lab_component_builder', 'Automatically Create Pattern Lab Components', function () {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var $options = this.options({
-
+      'regex': "^\\$.*",
+      'allow_var_values': true
     });
 
     // Iterate over all specified file groups.
     this.files.forEach(function ($file) {
-      var results = parse($file.src, $options);
       var cleanResults = [];
+      var results = parse($file.src, $options);
+      results.forEach(function(result) {
+        cleanResults.push(colonBreaker(result, $options));
+      });
+      cleanResults = _.compact(cleanResults);
+
 //      grunt.log.verbose.subhead("Clean Results:");
 //      grunt.log.verbose.writeln(JSON.stringify(cleanResults, null, '\t'));
-
-      results.forEach(function(result) {
-        cleanResults.push(colonBreaker(result));
-      });
       grunt.log.writeln("organized parsing");
       grunt.log.verbose.subhead("Clean Results:");
       grunt.log.verbose.writeln(JSON.stringify(cleanResults, null, '\t'));
