@@ -27,12 +27,19 @@ grunt.initConfig({
   pattern_lab_component_builder: {
     colors: {
       options: {
-        component: 'colors',
-        template: 'templates/colors.mustache'
+        regex: "^\\$color--.*",
+        allow_var_values: false
       },
-      src: 'test/fixtures/colors.scss',
-      dest: 'tmp/colors.mustache'
-    }
+      src: 'scss/global/variables/_colors.scss',
+      dest: 'source/_patterns/00-atoms/01-global/00-colors.json'
+    },
+    fonts: {
+      options: {
+        'regex': "^\\$type.*"
+      },
+      src: "scss/global/variables/_type-sizes.scss",
+      dest: "source/_patterns/00-atoms/02-text/02-type-sizes.json"
+    },
   },
 })
 ```
