@@ -28,24 +28,43 @@ module.exports = function (grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp/*']
+      tests: ['test/dest*']
     },
 
     // Configuration to be run (and then tested).
     pattern_lab_component_builder: {
       colors: {
         options: {
-          'regex': "^\\$color--.*"
+          'regex': "^\\$color--.*",
+          allow_var_values: false
         },
-        src: 'test/fixtures/colors.scss',
-        dest: 'tmp/colors.json'
+        src: 'test/src/*.scss',
+        dest: 'test/dest/colors.json'
       },
       fonts: {
         options: {
           regex: "^\\$type.*"
         },
-        src: 'test/fixtures/fonts.scss',
-        dest: 'tmp/fonts.json'
+        src: ['test/src/fonts.scss'],
+        dest: 'test/dest/fonts.json'
+      },
+      nullSearch: {
+        options: {
+          regex: "^\\$asdf.*"
+        },
+        src: ['test/src/fonts.scss'],
+        dest: 'test/dest/nullSearch.json'
+      },
+      globSearch: {
+        options: {
+          //regex: "^\\$.*"
+        },
+        src: ['test/src/*.scss'],
+        dest: 'test/dest/globSearch.json'
+      },
+      missingFile: {
+        src: ['test/src/mia.scss'],
+        dest: 'test/dest/mia.json'
       }
     },
 
@@ -58,7 +77,9 @@ module.exports = function (grunt) {
           'Gruntfile.js',
           'tasks/*'
         ],
-        tasks: 'test'
+        tasks: [
+          'pattern_lab_component_builder'
+        ]
       }
     },
 

@@ -27,13 +27,13 @@ exports.pattern_lab_component_builder = {
     // setup here if necessary
     done();
   },
-  colors: function (test) {
-    test.expect(1);
-
-    var actual = grunt.file.read('tmp/colors.mustache').trim();
-    var expected = grunt.file.read('test/expected/colors.mustache').trim();
-    test.equal(actual, expected, 'Color Mustache file needs to render correctly');
-
-    test.done();
-  }
+  //colors: function (test) {
+  //  test.expect(1);
+  //
+  //  var actual = grunt.file.read('tmp/colors.mustache').trim();
+  //  var expected = grunt.file.read('test/expected/colors.mustache').trim();
+  //  test.equal(actual, expected, 'Color Mustache file needs to render correctly');
+  //
+  //  test.done();
+  //}
 };

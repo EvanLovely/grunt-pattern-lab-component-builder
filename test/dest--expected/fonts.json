@@ -1,0 +1,44 @@
+{
+  "fonts": [
+    {
+      "name": "$typesize--11px",
+      "value": "11px"
+    },
+    {
+      "name": "$typesize--12px",
+      "value": "12px"
+    },
+    {
+      "name": "$typesize--14px",
+      "value": "14px"
+    },
+    {
+      "name": "$typesize--18px",
+      "value": "18px"
+    },
+    {
+      "name": "$typesize--24px",
+      "value": "24px"
+    },
+    {
+      "name": "$typesize--30px",
+      "value": "30px"
+    },
+    {
+      "name": "$typesize--36px",
+      "value": "36px"
+    },
+    {
+      "name": "$typesize--48px",
+      "value": "48px"
+    },
+    {
+      "name": "$typesize--60px",
+      "value": "60px"
+    },
+    {
+      "name": "$typesize--100px",
+      "value": "100px"
+    }
+  ]
+}
